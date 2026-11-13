@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeguridadPro Honduras | Equipos de Seguridad Electrónica USA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            dark: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar & smooth effects */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+        }
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-800 text-white transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/30 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight">Seguridad<span class="text-emerald-400">Pro</span></span>
+                        <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-medium">USA - Honduras</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
+                    <a href="#home" class="text-emerald-400 hover:text-emerald-300 transition-colors">Home</a>
+                    <a href="#catalogo" class="text-slate-300 hover:text-emerald-400 transition-colors">Catálogo</a>
+                    <a href="#nosotros" class="text-slate-300 hover:text-emerald-400 transition-colors">Quiénes Somos</a>
+                    <a href="#contacto" class="text-slate-300 hover:text-emerald-400 transition-colors">Contáctanos</a>
+                </nav>
+
+                <!-- Actions: Cart & WhatsApp CTA -->
+                <div class="flex items-center space-x-4">
+                    <!-- Cart Trigger Button -->
+                    <button onclick="toggleCart()" class="relative p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-all border border-slate-700 focus:outline-none">
+                        <i class="fa-solid fa-cart-shopping text-lg"></i>
+                        <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-emerald-500 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md scale-0 transition-transform duration-300">0</span>
+                    </button>
+
+                    <!-- Direct WhatsApp Quick Button -->
+                    <a href="https://wa.me/50497988287?text=Hola%20😊%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20equipos%20de%20seguridad%20electr%C3%B3nica%20desde%20USA%20para%20Honduras." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>+504 9798-8287</span>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl bg-slate-800 text-slate-300 hover:text-white">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-emerald-400 font-semibold py-2">Home</a>
+            <a href="#catalogo" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-emerald-400 font-semibold py-2">Catálogo</a>
+            <a href="#nosotros" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-emerald-400 font-semibold py-2">Quiénes Somos</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-emerald-400 font-semibold py-2">Contáctanos</a>
+            <div class="pt-2 border-t border-slate-800">
+                <a href="https://wa.me/50497988287?text=Hola%20😊%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20equipos..." target="_blank" class="flex items-center justify-center space-x-2 bg-emerald-600 text-white py-3 rounded-xl font-bold">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Contactar por WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="home">
+        <!-- HERO SECTION -->
+        <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-slate-900 text-white overflow-hidden">
+            <!-- Background Decorative Glows -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1.5 rounded-full text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-plane-up"></i>
+                            <span>Importación Directa desde EE. UU. a Honduras</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                            Seguridad Electrónica <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Profesional y Confiable</span>
+                        </h1>
+                        <p class="text-slate-300 text-lg sm:text-xl font-normal max-w-2xl mx-auto lg:mx-0">
+                            Protege tu hogar o negocio en Honduras con equipos de alta gama importados directamente desde Estados Unidos. Nivian, cámaras inteligentes, alarmas y control de acceso garantizados.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                            <a href="#catalogo" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-emerald-500/25 transition-all text-center flex items-center justify-center space-x-2">
+                                <span>Ver Catálogo</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="https://wa.me/50497988287?text=Hola%20😊%20Quiero%20cotizar%20equipos%20de%20seguridad%20desde%20USA%20para%20Honduras." target="_blank" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold px-8 py-4 rounded-xl transition-all text-center flex items-center justify-center space-x-2">
+                                <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                                <span>Cotizar por WhatsApp</span>
+                            </a>
+                        </div>
+                        <!-- Trust badges small -->
+                        <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-800/80 text-left">
+                            <div>
+                                <p class="text-2xl font-extrabold text-emerald-400">100%</p>
+                                <p class="text-xs text-slate-400">Originales USA</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-extrabold text-emerald-400">+504</p>
+                                <p class="text-xs text-slate-400">Soporte Local</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-extrabold text-emerald-400">Envíos</p>
+                                <p class="text-xs text-slate-400">A todo Honduras</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hero Visual Card -->
+                    <div class="lg:col-span-5">
+                        <div class="relative bg-slate-800/80 border border-slate-700/80 rounded-3xl p-6 shadow-2xl backdrop-blur-md animate-pulse-slow">
+                            <div class="absolute -top-3 -right-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                Stock Destacado
+                            </div>
+                            <img src="https://lh3.googleusercontent.com/d/1bkWzVAPZ7Le6X79aJylLrsKZPwMfE7RZ" alt="Video portero Nivian" class="w-full h-72 object-cover rounded-2xl mb-6 shadow-md bg-slate-900">
+                            <div class="space-y-2">
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Marca Nivian</span>
+                                <h3 class="text-2xl font-bold text-white">Video Portero Inteligente 2W</h3>
+                                <p class="text-slate-400 text-sm">Alta definición con conexión de dos vías, control desde app móvil y máxima seguridad para entradas principales.</p>
+                                <div class="flex items-center justify-between pt-4">
+                                    <span class="text-2xl font-extrabold text-emerald-400">2,580.00 Lps.</span>
+                                    <button onclick="quickAddHero('NVS-VIDEOINTERCOM-2W')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow transition-all">
+                                        <i class="fa-solid fa-cart-plus mr-1"></i> Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS / WHY CHOOSE US -->
+        <section class="py-16 bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2">Garantía y Confianza</h2>
+                    <p class="text-3xl font-extrabold text-slate-900 tracking-tight">¿Por qué comprar con nosotros?</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-slate-50 border border-slate-200/80 p-8 rounded-2xl hover:shadow-xl transition-all group">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Importación Directa USA</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Seleccionamos rigurosamente los mejores equipos de marcas reconocidas directo desde el mercado estadounidense.</p>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200/80 p-8 rounded-2xl hover:shadow-xl transition-all group">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-shield-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Garantía de Calidad</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Equipos 100% originales, probados y listos para brindar la máxima seguridad a tu hogar o negocio en Honduras.</p>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200/80 p-8 rounded-2xl hover:shadow-xl transition-all group">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Atención Personalizada</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Asesoría experta vía WhatsApp (+504 9798-8287) para ayudarte a elegir el sistema ideal según tus requerimientos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATALOG / SHOP SECTION -->
+        <section id="catalogo" class="py-20 bg-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Catálogo Oficial</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Equipos de Seguridad Electrónica</h2>
+                    </div>
+                    <p class="text-slate-600 text-sm mt-2 md:mt-0">Precios en Lempiras (L.) con disponibilidad inmediata desde EE. UU.</p>
+                </div>
+
+                <!-- Filters & Search Toolbar -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-10 flex flex-col md:flex-row gap-4 items-center justify-between">
+                    <!-- Search input -->
+                    <div class="relative w-full md:w-96">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="search-input" oninput="filterProducts()" placeholder="Buscar por modelo o nombre..." class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all">
+                    </div>
+
+                    <!-- Category / Brand filter buttons -->
+                    <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                        <button onclick="setFilter('all')" id="filter-all" class="px-4 py-2.5 rounded-xl text-sm font-bold bg-emerald-600 text-white shadow-sm transition-all">Todos</button>
+                        <button onclick="setFilter('Cámara')" id="filter-Cámara" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Cámaras</button>
+                        <button onclick="setFilter('Video Portero')" id="filter-Video Portero" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Video Porteros</button>
+                        <button onclick="setFilter('Alarma')" id="filter-Alarma" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Alarmas</button>
+                        <button onclick="setFilter('Control de Acceso')" id="filter-Control de Acceso" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">Control de Acceso</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Dynamic rendering via JavaScript -->
+                </div>
+
+                <!-- Empty state for search -->
+                <div id="no-results" class="hidden text-center py-16">
+                    <div class="w-16 h-16 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800">No se encontraron equipos</h3>
+                    <p class="text-slate-500 text-sm mt-1">Intenta con otro término de búsqueda o categoría.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US / QUIÉNES SOMOS -->
+        <section id="nosotros" class="py-20 bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Quiénes Somos</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Conectando la seguridad de EE. UU. con hogares y empresas en Honduras</h2>
+                        <p class="text-slate-600 text-base leading-relaxed">
+                            Somos una empresa especializada en la importación y comercialización de equipos de seguridad electrónica de alta gama desde Estados Unidos. Nuestro compromiso es acercar la tecnología más avanzada del mercado norteamericano directamente a territorio hondureño con total transparencia, respaldo y seguridad.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 pt-4">
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                                <p class="text-3xl font-extrabold text-emerald-600 mb-1">100%</p>
+                                <p class="text-slate-600 text-sm font-medium">Transparencia en Importación</p>
+                            </div>
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                                <p class="text-3xl font-extrabold text-emerald-600 mb-1">Directo</p>
+                                <p class="text-slate-600 text-sm font-medium">Sin intermediarios complejos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <div class="bg-slate-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                            <h3 class="text-2xl font-bold mb-6">Proceso de Importación & Respaldo</h3>
+                            <ul class="space-y-4 relative z-10 text-slate-300">
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs mt-1">✓</div>
+                                    <div><strong class="text-white">Selección en USA:</strong> Adquisición de marcas líderes como Nivian con estándares internacionales.</div>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs mt-1">✓</div>
+                                    <div><strong class="text-white">Logística Segura:</strong> Transporte optimizado y entrega protegida hasta Honduras.</div>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs mt-1">✓</div>
+                                    <div><strong class="text-white">Respaldo Local:</strong> Atención directa vía WhatsApp y asesoría post-venta garantizada.</div>
+                                </li>
+                            </ul>
+                            <!-- Testimonial Simulated -->
+                            <div class="mt-8 pt-6 border-t border-slate-800 italic text-sm text-slate-400">
+                                "Excelente servicio y rapidez. Compré el kit de alarmas y cámaras para mi negocio en San Pedro Sula y llegó impecable." 
+                                <span class="block not-italic font-bold text-white mt-1">— Carlos M., Cliente Verificado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contacto" class="py-20 bg-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest">Estamos para ayudarte</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Contáctanos</h2>
+                    <p class="text-slate-600 text-sm mt-2">¿Tienes dudas sobre especificaciones, envíos a tu ciudad o cotizaciones especiales? Escríbenos.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <!-- Contact Info Cards -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900">WhatsApp Directo</h3>
+                                <p class="text-slate-500 text-sm mt-1">Atención rápida y personalizada.</p>
+                                <a href="https://wa.me/50497988287?text=Hola%20😊%20Me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa%20sobre%20equipos%20de%20seguridad." target="_blank" class="inline-block text-emerald-600 hover:text-emerald-700 font-bold text-sm mt-2">+504 9798-8287 →</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900">Correo Electrónico</h3>
+                                <p class="text-slate-500 text-sm mt-1">Para cotizaciones institucionales.</p>
+                                <span class="inline-block text-slate-800 font-semibold text-sm mt-2">ventas@seguridadpro-hn.com</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900">Cobertura de Envíos</h3>
+                                <p class="text-slate-500 text-sm mt-1">Importado desde USA con entrega en todo Honduras.</p>
+                                <span class="inline-block text-slate-800 font-semibold text-sm mt-2">Tegucigalpa, San Pedro Sula y más</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Simulation -->
+                    <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-slate-200">
+                        <form onsubmit="handleContactSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-700 mb-2">Nombre completo</label>
+                                    <input type="text" id="contact-name" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all" placeholder="Ej. Juan Pérez">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-700 mb-2">Teléfono / WhatsApp</label>
+                                    <input type="text" id="contact-phone" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all" placeholder="Ej. +504 9999-9999">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Correo electrónico</label>
+                                <input type="email" id="contact-email" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all" placeholder="correo@ejemplo.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Mensaje / Consulta de equipos</label>
+                                <textarea id="contact-message" rows="4" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all" placeholder="Cuéntanos qué equipos necesitas..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-600/25 transition-all text-center flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Enviar Mensaje</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between border-b border-slate-800 pb-8 mb-8">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center text-white font-bold text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight">Seguridad<span class="text-emerald-400">Pro</span> Honduras</span>
+                        <span class="block text-[10px] uppercase tracking-widest text-slate-400 font-medium">Equipos de Seguridad USA</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6 text-slate-400 text-sm">
+                    <a href="#home" class="hover:text-emerald-400 transition-colors">Home</a>
+                    <a href="#catalogo" class="hover:text-emerald-400 transition-colors">Catálogo</a>
+                    <a href="#nosotros" class="hover:text-emerald-400 transition-colors">Quiénes Somos</a>
+                    <a href="#contacto" class="hover:text-emerald-400 transition-colors">Contáctanos</a>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>© 2026 SeguridadPro Honduras. Todos los derechos reservados. Importado desde EE. UU.</p>
+                <p class="mt-2 sm:mt-0">Atención WhatsApp: <a href="https://wa.me/50497988287" target="_blank" class="text-emerald-400 font-bold">+504 9798-8287</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART SIDEBAR DRAWER -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <!-- Drawer Header -->
+                <div class="p-6 bg-slate-900 text-white flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-cart-shopping text-emerald-400"></i>
+                        <h3 class="text-lg font-bold">Tu Carrito de Seguridad</h3>
+                    </div>
+                    <button onclick="toggleCart()" class="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <!-- Drawer Body / Cart Items -->
+                <div class="flex-1 overflow-y-auto p-6 space-y-4" id="cart-items-container">
+                    <!-- Dynamic cart items -->
+                </div>
+                <!-- Drawer Footer / Summary & Checkout -->
+                <div class="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between text-slate-600">
+                            <span>Subtotal</span>
+                            <span id="cart-subtotal" class="font-semibold text-slate-800">0.00 Lps.</span>
+                        </div>
+                        <div class="flex justify-between text-slate-600">
+                            <span>Importación USA / Envío</span>
+                            <span class="font-semibold text-emerald-600">Calculado vía WhatsApp</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-extrabold text-slate-900 pt-2 border-t border-slate-200">
+                            <span>Total Referencial</span>
+                            <span id="cart-total" class="text-emerald-600">0.00 Lps.</span>
+                        </div>
+                    </div>
+                    <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Finalizar pedido por WhatsApp</span>
+                    </button>
+                    <p class="text-center text-[11px] text-slate-400">Al presionar se abrirá WhatsApp con tu resumen precargado al +504 9798-8287.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div id="product-modal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm transition-opacity" onclick="closeProductModal()"></div>
+        <!-- Modal Box -->
+        <div class="relative bg-white rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden z-10 transform transition-all">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-slate-900/80 text-white flex items-center justify-center hover:bg-slate-900 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="modal-content" class="p-6 sm:p-8">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODERN FLOATING CHATBOT WIDGET -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <!-- Chat Toggle Button -->
+        <button onclick="toggleChatbot()" id="chatbot-toggle-btn" class="w-14 h-14 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all transform hover:scale-110 focus:outline-none">
+            <i class="fa-solid fa-headset"></i>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col transition-all">
+            <!-- Chat Header -->
+            <div class="bg-slate-900 text-white p-4 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold shadow">
+                        <i class="fa-solid fa-shield-halved text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Asistente SeguridadPro</h4>
+                        <span class="flex items-center text-[10px] text-emerald-400 font-medium">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1.5 animate-pulse"></span> En línea (IA)
+                        </span>
+                    </div>
+                </div>
+                <button onclick="toggleChatbot()" class="text-slate-400 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Chat Messages Body -->
+            <div id="chat-messages" class="p-4 h-80 overflow-y-auto space-y-3 bg-slate-50 text-xs sm:text-sm">
+                <!-- Initial Bot Message -->
+                <div class="flex items-start space-x-2">
+                    <div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0">IA</div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-200 text-slate-700 max-w-[80%]">
+                        ¡Hola! 👋 Soy tu asistente virtual de SeguridadPro. ¿En qué puedo ayudarte hoy sobre nuestros equipos de seguridad desde USA para Honduras?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Suggestions Chips -->
+            <div class="px-3 py-2 bg-slate-100 border-t border-slate-200 flex flex-wrap gap-1.5">
+                <button onclick="sendQuickPrompt('Horarios')" class="bg-white hover:bg-emerald-50 text-slate-600 hover:text-emerald-600 border border-slate-300 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors">Horarios</button>
+                <button onclick="sendQuickPrompt('Financiamientos')" class="bg-white hover:bg-emerald-50 text-slate-600 hover:text-emerald-600 border border-slate-300 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors">Financiamientos</button>
+                <button onclick="sendQuickPrompt('Entregas')" class="bg-white hover:bg-emerald-50 text-slate-600 hover:text-emerald-600 border border-slate-300 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors">Entregas</button>
+                <button onclick="sendQuickPrompt('Soporte técnico')" class="bg-white hover:bg-emerald-50 text-slate-600 hover:text-emerald-600 border border-slate-300 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors">Soporte</button>
+            </div>
+
+            <!-- Chat Input Footer -->
+            <div class="p-3 bg-white border-t border-slate-200 flex items-center space-x-2">
+                <input type="text" id="chat-input" onkeypress="handleChatKeyPress(event)" placeholder="Escribe tu consulta..." class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-emerald-500">
+                <button onclick="sendChatMessage()" class="w-9 h-9 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl flex items-center justify-center text-sm shadow">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT APPLICATION CODE -->
+    <script>
+        // --- 1. DATASET OFICIAL (Extraído exactamente del catálogo proporcionado) ---
+        const productsCatalog = [
+            {
+                id: "NVS-IPC-03-BAT-2",
+                name: "Cámara bullet",
+                brand: "Nivian",
+                model: "NVS-IPC-03-BAT-2",
+                price: 460.00,
+                image: "https://lh3.googleusercontent.com/d/1zHlY5s8W-gFMnXB7AI1DKrqcx808vPKl",
+                category: "Cámara",
+                description: "Cámara bullet de seguridad Nivian con batería recargable de alta duración, visión nocturna avanzada y conectividad inalámbrica para exteriores.",
+                badge: "Disponible / Importado USA",
+                year: "2026"
+            },
+            {
+                id: "NVS-VIDEOINTERCOM-2W",
+                name: "Video portero",
+                brand: "Nivian",
+                model: "NVS-VIDEOINTERCOM-2W",
+                price: 2580.00,
+                image: "https://lh3.googleusercontent.com/d/1bkWzVAPZ7Le6X79aJylLrsKZPwMfE7RZ",
+                category: "Video Portero",
+                description: "Video portero Nivian de dos vías con cámara HD, audio bidireccional y control directo desde aplicación móvil para máxima seguridad en accesos.",
+                badge: "Disponible / Importado USA",
+                year: "2026"
+            },
+            {
+                id: "NVS-A6WG",
+                name: "Central de Alarma",
+                brand: "Nivian",
+                model: "NVS-A6WG",
+                price: 1200.00,
+                image: "https://lh3.googleusercontent.com/d/1rQaI5813GVdPAmh60QtoW-Yavd01cpAb",
+                category: "Alarma",
+                description: "Central de alarma inteligente Nivian modelo NVS-A6WG con conectividad WiFi/GSM, alertas instantáneas en tiempo real y fácil integración con sensores.",
+                badge: "Disponible / Importado USA",
+                year: "2026"
+            },
+            {
+                id: "NV-ACCESS-PIN-RFID-W",
+                name: "Control de acceso inteligente",
+                brand: "Nivian",
+                model: "NV-ACCESS-PIN-RFID-W",
+                price: 1450.00,
+                image: "https://lh3.googleusercontent.com/d/11ekkm7lIvRbfktTsFMUs1ZloAMIlhXBC",
+                category: "Control de Acceso",
+                description: "Control de acceso inteligente Nivian con teclado PIN y lector RFID resistente para puertas principales, oficinas o portones.",
+                badge: "Disponible / Importado USA",
+                year: "2026"
+            }
+        ];
+
+        // --- 2. STATE MANAGEMENT ---
+        let cart = JSON.parse(localStorage.getItem('seguridadpro_cart')) || [];
+        let currentFilter = 'all';
+        let currentSearchQuery = '';
+
+        // --- 3. FORMATTERS ---
+        function formatLempiras(amount) {
+            return amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' Lps.';
+        }
+
+        // --- 4. RENDER CATALOG ---
+        function renderCatalog() {
+            const grid = document.getElementById('products-grid');
+            const noResults = document.getElementById('no-results');
+            grid.innerHTML = '';
+
+            const filtered = productsCatalog.filter(p => {
+                const matchesCategory = currentFilter === 'all' || p.category === currentFilter;
+                const matchesSearch = p.name.toLowerCase().includes(currentSearchQuery.toLowerCase()) || 
+                                      p.model.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
+                                      p.brand.toLowerCase().includes(currentSearchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col group";
+                card.innerHTML = `
+                    <div class="relative h-56 bg-slate-100 overflow-hidden cursor-pointer" onclick="openProductModal('${product.id}')">
+                        <span class="absolute top-3 left-3 z-10 bg-emerald-500 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow">
+                            ${product.badge}
+                        </span>
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 bg-white">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
+                                <span class="font-bold text-emerald-600">${product.brand}</span>
+                                <span>Mod: ${product.model}</span>
+                            </div>
+                            <h3 onclick="openProductModal('${product.id}')" class="text-lg font-bold text-slate-900 hover:text-emerald-600 cursor-pointer transition-colors line-clamp-1">${product.name}</h3>
+                            <p class="text-slate-500 text-xs mt-1.5 line-clamp-2">${product.description}</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="block text-[10px] uppercase font-bold text-slate-400">Precio</span>
+                                <span class="text-lg font-extrabold text-emerald-600">${formatLempiras(product.price)}</span>
+                            </div>
+                            <button onclick="addToCart('${product.id}')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-md shadow-emerald-600/20 transition-all flex items-center space-x-1.5">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>Agregar</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // --- 5. FILTERS & SEARCH ---
+        function setFilter(category) {
+            currentFilter = category;
+            // Update button styles
+            ['all', 'Cámara', 'Video Portero', 'Alarma', 'Control de Acceso'].forEach(cat => {
+                const btn = document.getElementById(`filter-${cat}`);
+                if (btn) {
+                    if (cat === category) {
+                        btn.className = "px-4 py-2.5 rounded-xl text-sm font-bold bg-emerald-600 text-white shadow-sm transition-all";
+                    } else {
+                        btn.className = "px-4 py-2.5 rounded-xl text-sm font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all";
+                    }
+                }
+            });
+            renderCatalog();
+        }
+
+        function filterProducts() {
+            currentSearchQuery = document.getElementById('search-input').value;
+            renderCatalog();
+        }
+
+        // --- 6. CART LOGIC ---
+        function addToCart(productId) {
+            const product = productsCatalog.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            saveCart();
+            updateCartBadge();
+            renderCartItems();
+            toggleCart(); // Open cart drawer to give visual feedback
+        }
+
+        function quickAddHero(productId) {
+            addToCart(productId);
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function updateQuantity(productId, delta) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    saveCart();
+                    updateCartBadge();
+                    renderCartItems();
+                }
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('seguridadpro_cart', JSON.stringify(cart));
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cart-badge');
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            badge.innerText = totalCount;
+            if (totalCount > 0) {
+                badge.classList.remove('scale-0');
+                badge.classList.add('scale-100');
+            } else {
+                badge.classList.remove('scale-100');
+                badge.classList.add('scale-0');
+            }
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items-container');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const totalEl = document.getElementById('cart-total');
+            
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16">
+                        <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                        </div>
+                        <p class="text-slate-700 font-bold">Tu carrito está vacío</p>
+                        <p class="text-slate-400 text-xs mt-1">Agrega equipos de seguridad para cotizar.</p>
+                    </div>
+                `;
+                subtotalEl.innerText = formatLempiras(0);
+                totalEl.innerText = formatLempiras(0);
+                return;
+            }
+
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                const itemDiv = document.createElement('div');
+                itemDiv.className = "flex items-center space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-200";
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-xl bg-white shrink-0">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-slate-900 text-sm line-clamp-1">${item.name}</h4>
+                        <span class="text-[11px] text-slate-500">Mod: ${item.model}</span>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-emerald-600 font-extrabold text-sm">${formatLempiras(item.price)}</span>
+                            <div class="flex items-center space-x-2 bg-white border border-slate-300 rounded-lg px-2 py-1">
+                                <button onclick="updateQuantity('${item.id}', -1)" class="text-slate-500 hover:text-slate-800 font-bold px-1">-</button>
+                                <span class="text-xs font-bold text-slate-800">${item.quantity}</span>
+                                <button onclick="updateQuantity('${item.id}', 1)" class="text-slate-500 hover:text-slate-800 font-bold px-1">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart('${item.id}')" class="text-slate-400 hover:text-red-500 p-2">
+                        <i class="fa-solid fa-trash-can text-sm"></i>
+                    </button>
+                `;
+                container.appendChild(itemDiv);
+            });
+
+            subtotalEl.innerText = formatLempiras(subtotal);
+            totalEl.innerText = formatLempiras(subtotal);
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        // --- 7. WHATSAPP CHECKOUT FLOW ---
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío. Agrega al menos un equipo antes de finalizar el pedido.');
+                return;
+            }
+
+            let subtotal = 0;
+            let itemsText = "";
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                itemsText += `%0A${index + 1}. *${item.name}*%0A   - Marca: ${item.brand}%0A   - Modelo: ${item.model}%0A   - Cantidad: ${item.quantity}%0A   - Precio u.: ${formatLempiras(item.price)}%0A   - Foto: ${item.image}%0A`;
+            });
+
+            const totalText = formatLempiras(subtotal);
+
+            const greeting = "Hola 😊 Me interesa cotizar y reservar estos equipos de seguridad electrónica que vi en su web:";
+            const closing = `%0A*Total referencial:* ${totalText}%0A%0A¿Me confirmas disponibilidad y próximos pasos para coordinar el envío/entrega en Honduras?`;
+
+            const fullMessage = `${greeting}${itemsText}%0A${closing}`;
+            const whatsappUrl = `https://wa.me/50497988287?text=${fullMessage}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // --- 8. PRODUCT MODAL DETAILS ---
+        function openProductModal(productId) {
+            const product = productsCatalog.find(p => p.id === productId);
+            if (!product) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-slate-100 rounded-2xl overflow-hidden h-72 flex items-center justify-center">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block">
+                            ${product.category} • ${product.brand}
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">${product.name}</h2>
+                        <p class="text-slate-500 text-xs font-semibold">Modelo ID: ${product.model}</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">${product.description}</p>
+                        <div class="pt-2">
+                            <span class="text-xs uppercase font-bold text-slate-400 block">Disponibilidad</span>
+                            <span class="text-sm font-bold text-emerald-600">${product.badge}</span>
+                        </div>
+                        <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Precio oficial</span>
+                                <span class="text-2xl font-extrabold text-emerald-600">${formatLempiras(product.price)}</span>
+                            </div>
+                            <button onclick="addToCart('${product.id}'); closeProductModal();" class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center space-x-2">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>Agregar al Carrito</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        // --- 9. MOBILE MENU TOGGLE ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- 10. CONTACT FORM SUBMISSION ---
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const phone = document.getElementById('contact-phone').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+
+            const waText = `Hola 😊 Mi nombre es *${name}* (Tel: ${phone}, Email: ${email}).%0A%0A${message}`;
+            window.open(`https://wa.me/50497988287?text=${waText}`, '_blank');
+        }
+
+        // --- 11. MODERN CHATBOT AI SIMULATION ---
+        function toggleChatbot() {
+            const windowEl = document.getElementById('chatbot-window');
+            windowEl.classList.toggle('hidden');
+        }
+
+        function sendQuickPrompt(topic) {
+            appendUserMessage(topic);
+            processBotResponse(topic);
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            appendUserMessage(text);
+            input.value = '';
+            processBotResponse(text);
+        }
+
+        function appendUserMessage(text) {
+            const container = document.getElementById('chat-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = "flex items-start justify-end space-x-2";
+            msgDiv.innerHTML = `
+                <div class="bg-emerald-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm text-xs sm:text-sm max-w-[80%]">
+                    ${text}
+                </div>
+            `;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function appendBotMessage(text) {
+            const container = document.getElementById('chat-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = "flex items-start space-x-2";
+            msgDiv.innerHTML = `
+                <div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0">IA</div>
+                <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-200 text-slate-700 text-xs sm:text-sm max-w-[80%]">
+                    ${text}
+                </div>
+            `;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function processBotResponse(query) {
+            // Typing delay simulation
+            setTimeout(() => {
+                const q = query.toLowerCase();
+                let reply = "¡Gracias por tu consulta! Para brindarte una atención más detallada e inmediata sobre este punto, puedes escribirnos directamente a nuestro WhatsApp oficial: *+504 9798-8287*.";
+
+                if (q.includes('horario') || q.includes('atención')) {
+                    reply = "🕒 Nuestro horario de atención digital y de pedidos por WhatsApp es de Lunes a Sábado de 8:00 AM a 6:00 PM.";
+                } else if (q.includes('prueba') || q.includes('demostración')) {
+                    reply = "🚗 Contamos con demostraciones virtuales y asesoría guiada para el funcionamiento de nuestras cámaras y sistemas de alarma. Escríbenos al +504 9798-8287 para coordinar.";
+                } else if (q.includes('financiamiento') || q.includes('pago')) {
+                    reply = "💳 Ofrecemos excelentes alternativas de cotización institucional y facilidades de pago directas para proyectos de seguridad en Honduras. Consúltanos por WhatsApp.";
+                } else if (q.includes('entrega') || q.includes('envío')) {
+                    reply = "📦 Realizamos importación directa desde EE. UU. con entregas seguras a Tegucigalpa, San Pedro Sula y todo Honduras. El tiempo estimado depende del equipo seleccionado.";
+                } else if (q.includes('producto') || q.includes('catálogo') || q.includes('nivian')) {
+                    reply = "🛡️ Trabajamos con equipos originales Nivian importados de USA: Cámaras bullet, Video porteros, Centrales de alarma y Control de acceso inteligente. ¡Puedes verlos en nuestro catálogo web!";
+                } else if (q.includes('contacto') || q.includes('telefono') || q.includes('whatsapp')) {
+                    reply = "📞 Puedes contactarnos de inmediato al WhatsApp: *+504 9798-8287* o a nuestro correo ventas@seguridadpro-hn.com.";
+                } else if (q.includes('soporte') || q.includes('técnico')) {
+                    reply = "🛠️ Brindamos soporte técnico especializado y guía de configuración para todos los equipos adquiridos con nosotros.";
+                } else if (q.includes('seguimiento') || q.includes('pedido')) {
+                    reply = "🔍 Para verificar el estatus de tu pedido o importación desde EE. UU., por favor ten a la mano tu número de cotización y escríbenos al +504 9798-8287.";
+                }
+
+                appendBotMessage(reply);
+            }, 600);
+        }
+
+        // --- 12. INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCatalog();
+            updateCartBadge();
+            renderCartItems();
+        });
+    </script>
+</body>
+</html>
